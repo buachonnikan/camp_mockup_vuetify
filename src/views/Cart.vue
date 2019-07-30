@@ -58,14 +58,29 @@
         <div class="foot">
             <v-layout style="height:80px;">
                 <v-flex md3 style="background-color:#FE0000; position:relative;">
+
                     <v-btn style="color:white; background-color:transparent;width:100%;height:100%;margin:0px 0px">
                         <v-icon class="center" style="color:white">fas fa-trash-alt</v-icon>
                     </v-btn>
                 </v-flex>
                 <v-flex md9 style="background-color:#1689FF; position:relative">
-                    <v-btn style="color:white; background-color:transparent;width:100%;height:100%;margin:0px 0px">
-                        <v-icon style="color:white;margin:0px 5px;">far fa-check-circle</v-icon>Confirm Order
-                    </v-btn>
+                    <v-dialog v-model="dialog" persistent max-width="290">
+                        <template v-slot:activator="{ on }">
+                            <v-btn dark v-on="on" style="color:white; background-color:transparent;width:100%;height:100%;margin:0px 0px">
+                            <v-icon style="color:white;margin:0px 5px;">far fa-check-circle</v-icon>Confirm Order</v-btn>
+                        </template>
+                        <v-card>
+                        <v-card-title class="headline ">ยืนยัน</v-card-title>
+                        <v-card-text>ต้องการสร้างออเดอร์ใช่หรือไม่</v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="blue darken-1" text @click="dialog = false">ไม่ใช่</v-btn>
+                            <v-btn color="blue darken-1" text @click="dialog = false">ใช่</v-btn>
+                            <v-spacer></v-spacer>
+                        </v-card-actions>
+                        </v-card>
+                    </v-dialog>
+
                 </v-flex>
             </v-layout>
         </div>
@@ -88,7 +103,7 @@ export default {
   data () {
     return {
       items: [
-        { title: 'Click Me' },
+        { title: 'Next!', path: '/' },
         { title: 'Click Me' },
         { title: 'Click Me' },
         { title: 'Yayyyyy' }
@@ -114,7 +129,8 @@ export default {
           code: '12035785-3',
           amount: 1,
           price: '490.00' }
-      ]
+      ],
+      dialog: false
     }
   }
 }

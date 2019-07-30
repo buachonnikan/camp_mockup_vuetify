@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Cart from './views/Cart.vue'
-import Product1 from './views/Product-data.vue'
+import Product1 from './views/Product-modal.vue'
 import Product2 from './views/Product-simple.vue'
 
 Vue.use(Router)
@@ -18,10 +18,6 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
       component: About
     },
     {
@@ -30,7 +26,7 @@ export default new Router({
       component: Cart
     },
     {
-      path: '/Product1',
+      path: '/',
       name: 'Product1',
       component: Product1
     },
