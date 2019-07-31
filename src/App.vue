@@ -21,5 +21,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+  *{
+    font-size: 16px;
+    font-family: 'Sarabun', sans-serif;
+  }
 </style>
